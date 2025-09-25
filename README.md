@@ -172,6 +172,29 @@ Este projeto está licenciado sob a [Licença MIT](LICENSE).
 - **Monitoramento**: Prometheus + Grafana (opcional)
 - **Logs**: ELK Stack (opcional)
 
+## 🛠️ Ferramentas de Desenvolvimento
+
+### 🔄 Husky - Git Hooks
+
+O projeto utiliza o **Husky** para automatizar tarefas durante o ciclo de vida do Git. Os hooks configurados garantem a qualidade do código antes de cada commit e push.
+
+#### Hooks Configurados:
+- **pre-commit**: Executa o `lint-staged` para:
+  - Formatar o código com Prettier
+  - Verificar problemas de lint com ESLint
+  - Executar testes unitários (quando disponíveis)
+
+#### Benefícios:
+- Padronização do código
+- Prevenção de erros comuns
+- Garantia de qualidade antes de cada commit
+
+#### Como usar:
+1. Faça suas alterações no código
+2. Adicione as mudanças com `git add .`
+3. Ao fazer `git commit`, os hooks serão executados automaticamente
+4. Se houver erros, corrija-os antes de prosseguir
+
 ## 📚 Documentação da API
 
 A documentação completa da API está disponível via Swagger em:
