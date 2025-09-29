@@ -5,10 +5,12 @@ on:
     branches:
       - main
       - develop
+      - "teste/**"
   pull_request:
     branches:
       - main
       - develop
+      - "teste/**"
 
 jobs:
   sonarcloud-complete:
@@ -55,11 +57,15 @@ jobs:
         working-directory: ./financial-planner-frontend
         run: npm run lint
 
+      - name: Instalar SonarScanner
+        run: |
+          npm install -g sonarqube-scanner
+
       - name: Análise SonarCloud - Projeto Completo
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          npx sonar-scanner \
+          sonar-scanner \
             -Dsonar.projectKey=financial-planner-case \
             -Dsonar.organization=${{ secrets.SONAR_ORGANIZATION }} \
             -Dsonar.host.url=https://sonarcloud.io \

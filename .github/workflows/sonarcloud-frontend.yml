@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - develop
+      - "teste/**"
     paths:
       - "financial-planner-frontend/**"
       - ".github/workflows/sonarcloud-frontend.yml"
@@ -12,6 +13,7 @@ on:
     branches:
       - main
       - develop
+      - "teste/**"
     paths:
       - "financial-planner-frontend/**"
       - ".github/workflows/sonarcloud-frontend.yml"
@@ -46,12 +48,16 @@ jobs:
         working-directory: ./financial-planner-frontend
         run: npm run lint
 
+      - name: Instalar SonarScanner
+        run: |
+          npm install -g sonarqube-scanner
+
       - name: Análise SonarCloud
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           cd financial-planner-frontend
-          npx sonar-scanner \
+          sonar-scanner \
             -Dsonar.projectKey=financial-planner-frontend \
             -Dsonar.organization=${{ secrets.SONAR_ORGANIZATION }} \
             -Dsonar.host.url=https://sonarcloud.io \
