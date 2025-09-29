@@ -322,15 +322,15 @@ Para ativar o SonarCloud:
 
 3. Instale as dependências:
 
-   ```bash
+```bash
    # Backend
    cd financial-planner-backend
    npm install sonar-scanner --save-dev
    
    # Frontend  
-   cd financial-planner-frontend
+cd financial-planner-frontend
    npm install sonar-scanner --save-dev
-   ```
+```
 
 #### Execução de Análises
 
