@@ -1,0 +1,56 @@
+name: Análise SonarCloud - Backend
+
+on:
+    push:
+        branches:
+            - main
+            - develop
+        paths:
+            - "financial-planner-backend/**"
+            - ".github/workflows/sonarcloud-backend.yml"
+    pull_request:
+        branches:
+            - main
+            - develop
+        paths:
+            - "financial-planner-backend/**"
+            - ".github/workflows/sonarcloud-backend.yml"
+
+jobs:
+    sonarcloud-backend:
+        name: Análise Backend
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout código
+              uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0 # Necessário para análise completa do SonarCloud
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: "18"
+                  cache: "npm"
+                  cache-dependency-path: financial-planner-backend/package-lock.json
+
+            - name: Instalar dependências
+              working-directory: ./financial-planner-backend
+              run: npm ci
+
+            - name: Executar testes
+              working-directory: ./financial-planner-backend
+              run: npm run test:ci
+
+            - name: Análise SonarCloud
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+                  SONAR_ORGANIZATION: ${{ secrets.SONAR_ORGANIZATION }}
+              run: |
+                  cd financial-planner-backend
+                  npx sonar-scanner \
+                    -Dsonar.projectKey=financial-planner-backend \
+                    -Dsonar.organization=${{ env.SONAR_ORGANIZATION }} \
+                    -Dsonar.host.url=https://sonarcloud.io \
+                    -Dsonar.token=${{ env.SONAR_TOKEN }}

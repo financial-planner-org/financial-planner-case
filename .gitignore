@@ -13,6 +13,7 @@
 # Misc
 .DS_Store
 *.pem
+improve-commits.ps1
 
 # Debug
 npm-debug.log*

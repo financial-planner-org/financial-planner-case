@@ -1,0 +1,68 @@
+name: Análise SonarCloud - Projeto Completo
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+      - develop
+
+jobs:
+  sonarcloud-complete:
+    name: Análise Completa
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Necessário para análise completa do SonarCloud
+
+      - name: Setup Node.js para Backend
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+          cache: "npm"
+          cache-dependency-path: financial-planner-backend/package-lock.json
+
+      - name: Instalar dependências do Backend
+        working-directory: ./financial-planner-backend
+        run: npm ci
+
+      - name: Executar testes do Backend
+        working-directory: ./financial-planner-backend
+        run: npm run test:ci
+
+      - name: Setup Node.js para Frontend
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+          cache: "npm"
+          cache-dependency-path: financial-planner-frontend/package-lock.json
+
+      - name: Instalar dependências do Frontend
+        working-directory: ./financial-planner-frontend
+        run: npm ci
+
+      - name: Build do Frontend
+        working-directory: ./financial-planner-frontend
+        run: npm run build
+
+      - name: Executar lint do Frontend
+        working-directory: ./financial-planner-frontend
+        run: npm run lint
+
+      - name: Análise SonarCloud - Projeto Completo
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_ORGANIZATION: ${{ secrets.SONAR_ORGANIZATION }}
+        run: |
+          npx sonar-scanner \
+            -Dsonar.projectKey=financial-planner-case \
+            -Dsonar.organization=${{ env.SONAR_ORGANIZATION }} \
+            -Dsonar.host.url=https://sonarcloud.io \
+            -Dsonar.token=${{ env.SONAR_TOKEN }}
