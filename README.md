@@ -1,3 +1,5 @@
+<div align="center">
+
 # Financial Planner - Multi Family Office
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -8,12 +10,39 @@
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
 [![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white)](https://www.docker.com/)
 
-<!-- SonarCloud Quality Badges -->
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=SUA_ORGANIZATION_financial-planner-case&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=SUA_ORGANIZATION_financial-planner-case)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=SUA_ORGANIZATION_financial-planner-case&metric=coverage)](https://sonarcloud.io/summary/new_code?id=SUA_ORGANIZATION_financial-planner-case)
-[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=SUA_ORGANIZATION_financial-planner-case&metric=bugs)](https://sonarcloud.io/summary/new_code?id=SUA_ORGANIZATION_financial-planner-case)
-[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=SUA_ORGANIZATION_financial-planner-case&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=SUA_ORGANIZATION_financial-planner-case)
-[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=SUA_ORGANIZATION_financial-planner-case&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=SUA_ORGANIZATION_financial-planner-case)
+</div>
+
+## 📊 Qualidade do Código
+
+<div align="center">
+
+### Frontend
+
+<div align="center">
+
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=financial-planner-org_financial-planner-frontend&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=financial-planner-org_financial-planner-frontend)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=financial-planner-org_financial-planner-frontend&metric=coverage)](https://sonarcloud.io/summary/new_code?id=financial-planner-org_financial-planner-frontend)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=financial-planner-org_financial-planner-frontend&metric=bugs)](https://sonarcloud.io/summary/new_code?id=financial-planner-org_financial-planner-frontend)
+
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=financial-planner-org_financial-planner-frontend&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=financial-planner-org_financial-planner-frontend)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=financial-planner-org_financial-planner-frontend&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=financial-planner-org_financial-planner-frontend)
+
+</div>
+
+### Backend
+
+<div align="center">
+
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=financial-planner-org_financial-planner-backend&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=financial-planner-org_financial-planner-backend)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=financial-planner-org_financial-planner-backend&metric=coverage)](https://sonarcloud.io/summary/new_code?id=financial-planner-org_financial-planner-backend)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=financial-planner-org_financial-planner-backend&metric=bugs)](https://sonarcloud.io/summary/new_code?id=financial-planner-org_financial-planner-backend)
+
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=financial-planner-org_financial-planner-backend&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=financial-planner-org_financial-planner-backend)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=financial-planner-org_financial-planner-backend&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=financial-planner-org_financial-planner-backend)
+
+</div>
+
+</div>
 
 ## 📋 Descrição do Projeto
 
