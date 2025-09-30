@@ -1,6 +1,9 @@
 [submodule "financial-planner-backend"]
 	path = financial-planner-backend
 	url = https://github.com/financial-planner-org/financial-planner-backend.git
+	branch = main
+
 [submodule "financial-planner-frontend"]
 	path = financial-planner-frontend
 	url = https://github.com/financial-planner-org/financial-planner-frontend.git
+	branch = main

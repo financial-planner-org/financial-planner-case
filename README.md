@@ -10,11 +10,11 @@
 [![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white)](https://www.docker.com/)
 
 <!-- SonarCloud Quality Badges -->
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=SUA_ORGANIZATION_financial-planner-case&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=SUA_ORGANIZATION_financial-planner-case)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=SUA_ORGANIZATION_financial-planner-case&metric=coverage)](https://sonarcloud.io/summary/new_code?id=SUA_ORGANIZATION_financial-planner-case)
-[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=SUA_ORGANIZATION_financial-planner-case&metric=bugs)](https://sonarcloud.io/summary/new_code?id=SUA_ORGANIZATION_financial-planner-case)
-[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=SUA_ORGANIZATION_financial-planner-case&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=SUA_ORGANIZATION_financial-planner-case)
-[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=SUA_ORGANIZATION_financial-planner-case&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=SUA_ORGANIZATION_financial-planner-case)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=financial-planner-org_financial-planner-case&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=financial-planner-org_financial-planner-case)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=financial-planner-org_financial-planner-case&metric=coverage)](https://sonarcloud.io/summary/new_code?id=financial-planner-org_financial-planner-case)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=financial-planner-org_financial-planner-case&metric=bugs)](https://sonarcloud.io/summary/new_code?id=financial-planner-org_financial-planner-case)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=financial-planner-org_financial-planner-case&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=financial-planner-org_financial-planner-case)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=financial-planner-org_financial-planner-case&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=financial-planner-org_financial-planner-case)
 
 ## 📋 Descrição do Projeto
 
@@ -202,56 +202,55 @@ volumes:
 
 ## 📦 Estrutura do Projeto
 
+O projeto está organizado em **3 repositórios separados** na organização `financial-planner-org`:
+
+### 🏢 **Repositórios da Organização**
+
+| Repositório | Descrição | Tecnologias | Status |
+|-------------|-----------|-------------|---------|
+| [**financial-planner-case**](https://github.com/financial-planner-org/financial-planner-case) | Repositório principal com Docker Compose e documentação | Docker, CI/CD, SonarCloud | ✅ Ativo |
+| [**financial-planner-backend**](https://github.com/financial-planner-org/financial-planner-backend) | API REST com Node.js e Fastify | Node.js, Fastify, Prisma, PostgreSQL | ✅ Ativo |
+| [**financial-planner-frontend**](https://github.com/financial-planner-org/financial-planner-frontend) | Interface Next.js com ShadCN/UI | Next.js, TypeScript, Tailwind CSS | ✅ Ativo |
+
+### 📁 **Estrutura Detalhada**
+
 ```text
-financial-planner-case/
+financial-planner-case/                    # Repositório Principal
 ├── .github/workflows/                    # CI/CD e SonarCloud
-│   ├── sonarcloud-backend.yml           # Análise backend
-│   ├── sonarcloud-frontend.yml          # Análise frontend
-│   └── sonarcloud-complete.yml          # Análise completa
-│
-├── financial-planner-backend/            # API REST Node.js + Fastify
-│   ├── prisma/
-│   │   ├── schema.prisma                # Schema do banco
-│   │   └── migrations/                  # Migrações
-│   ├── src/
-│   │   ├── routes/                      # Rotas da API
-│   │   │   ├── health.ts               # Health check
-│   │   │   ├── simulations.ts          # CRUD simulações
-│   │   │   ├── projections.ts          # Cálculo projeções
-│   │   │   ├── allocations.ts          # Gestão alocações
-│   │   │   ├── movements.ts            # Gestão movimentações
-│   │   │   └── insurances.ts           # Gestão seguros
-│   │   ├── services/                    # Lógica de negócios
-│   │   ├── schemas/                     # Validações Zod
-│   │   └── server.ts                    # Servidor principal
-│   ├── tests/                           # Testes Jest + Supertest
-│   │   ├── routes/                      # Testes de rotas
-│   │   └── services/                    # Testes de serviços
-│   └── sonar-project.properties         # Configuração SonarCloud
-│
-├── financial-planner-frontend/           # Next.js 14 + ShadCN/UI
-│   ├── src/
-│   │   ├── app/                         # App Router
-│   │   │   ├── page.tsx                # Home (Alocações)
-│   │   │   ├── projecao/page.tsx       # Página de projeções
-│   │   │   ├── historico/page.tsx      # Histórico simulações
-│   │   │   ├── movimentacoes/page.tsx  # Gestão movimentações
-│   │   │   ├── alocacoes/page.tsx      # Gestão alocações
-│   │   │   └── seguros/page.tsx        # Gestão seguros
-│   │   ├── components/                  # Componentes reutilizáveis
-│   │   │   ├── ui/                     # ShadCN/UI components
-│   │   │   ├── layout/                 # Layout components
-│   │   │   ├── allocations/            # Components alocações
-│   │   │   ├── projections/            # Components projeções
-│   │   │   └── movements/              # Components movimentações
-│   │   ├── hooks/                       # Custom hooks
-│   │   │   └── api/                    # Hooks para API calls
-│   │   └── lib/                         # Configurações e utils
-│   └── sonar-project.properties         # Configuração SonarCloud
-│
+│   └── ci.yml                           # Pipeline completo
+├── financial-planner-backend/            # Submódulo Backend
+├── financial-planner-frontend/           # Submódulo Frontend
 ├── docker-compose.yml                   # Orquestração containers
-├── sonar-project.properties             # Configuração SonarCloud global
-└── README.md                            # Esta documentação
+├── sonar-project.properties             # Configuração SonarCloud
+└── README.md                            # Documentação principal
+
+financial-planner-backend/                # Repositório Backend
+├── src/
+│   ├── routes/                          # Rotas da API
+│   │   ├── health.ts                   # Health check
+│   │   ├── simulations.ts              # CRUD simulações
+│   │   ├── projections.ts              # Cálculo projeções
+│   │   ├── allocations.ts              # Gestão alocações
+│   │   ├── movements.ts                # Gestão movimentações
+│   │   └── insurances.ts               # Gestão seguros
+│   ├── services/                        # Lógica de negócios
+│   └── server.ts                        # Servidor principal
+├── tests/                               # Testes Jest + Supertest
+├── prisma/                              # Schema e migrações
+└── Dockerfile                           # Container backend
+
+financial-planner-frontend/               # Repositório Frontend
+├── src/
+│   ├── app/                             # App Router Next.js
+│   │   ├── page.tsx                    # Home (Alocações)
+│   │   ├── projecao/page.tsx           # Página de projeções
+│   │   └── historico/page.tsx          # Histórico simulações
+│   ├── components/                      # Componentes reutilizáveis
+│   │   ├── ui/                         # ShadCN/UI components
+│   │   ├── layout/                     # Layout components
+│   │   └── projections/                # Components projeções
+│   └── hooks/                           # Custom hooks
+└── Dockerfile                           # Container frontend
 ```
 
 ## 🚀 Instalação e Execução
@@ -266,7 +265,7 @@ financial-planner-case/
 1. **Clone o repositório**:
 
    ```bash
-   git clone https://github.com/seu-usuario/financial-planner-case.git
+   git clone https://github.com/financial-planner-org/financial-planner-case.git
    cd financial-planner-case
    ```
 
