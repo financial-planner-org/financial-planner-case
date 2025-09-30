@@ -18,6 +18,7 @@
 
 <!-- SonarCloud Quality Badges -->
 ### Backend Quality
+
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=financial-planner-org_financial-planner-backend&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=financial-planner-org_financial-planner-backend)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=financial-planner-org_financial-planner-backend&metric=coverage)](https://sonarcloud.io/summary/new_code?id=financial-planner-org_financial-planner-backend)
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=financial-planner-org_financial-planner-backend&metric=bugs)](https://sonarcloud.io/summary/new_code?id=financial-planner-org_financial-planner-backend)
@@ -26,6 +27,7 @@
 [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=financial-planner-org_financial-planner-backend&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=financial-planner-org_financial-planner-backend)
 
 ### Frontend Quality
+
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=financial-planner-org_financial-planner-frontend&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=financial-planner-org_financial-planner-frontend)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=financial-planner-org_financial-planner-frontend&metric=coverage)](https://sonarcloud.io/summary/new_code?id=financial-planner-org_financial-planner-frontend)
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=financial-planner-org_financial-planner-frontend&metric=bugs)](https://sonarcloud.io/summary/new_code?id=financial-planner-org_financial-planner-frontend)
@@ -93,7 +95,7 @@ A interface replica fielmente o design dark-mode do [Figma fornecido](https://ww
 #### Backend (Node.js 20 + TypeScript)
 
 - **Framework**: Fastify 4 com documentação Swagger automática
-- **Banco de Dados**: PostgreSQL 15 (produção) + SQLite (desenvolvimento)
+- **Banco de Dados**: PostgreSQL 15 (produção e desenvolvimento)
 - **ORM**: Prisma 5 com migrações automatizadas
 - **Validação**: Zod v4 schemas integrados ao Fastify
 - **Testes**: Jest + Supertest (cobertura > 80%)
