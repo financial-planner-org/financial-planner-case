@@ -21,16 +21,19 @@
 Para cada repositório, crie um projeto no SonarCloud:
 
 #### **Backend**
+
 - **Project Key**: `financial-planner-org_financial-planner-backend`
 - **Organization**: `financial-planner-org`
 - **Repository**: `financial-planner-org/financial-planner-backend`
 
 #### **Frontend**
+
 - **Project Key**: `financial-planner-org_financial-planner-frontend`
 - **Organization**: `financial-planner-org`
 - **Repository**: `financial-planner-org/financial-planner-frontend`
 
 #### **Case Principal**
+
 - **Project Key**: `financial-planner-org_financial-planner-case`
 - **Organization**: `financial-planner-org`
 - **Repository**: `financial-planner-org/financial-planner-case`
