@@ -1,7 +1,10 @@
 version: "3.8"
+
 services:
+  # Banco de dados PostgreSQL 15
   db:
     image: postgres:15
+    container_name: financial-planner-db
     environment:
       POSTGRES_USER: planner
       POSTGRES_PASSWORD: plannerpw
@@ -10,33 +13,49 @@ services:
       - pg_data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U planner -d plannerdb"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
+  # Backend API (Node.js 20 + Fastify 4)
   backend:
     build:
       context: ./financial-planner-backend
+      dockerfile: Dockerfile
+    container_name: financial-planner-backend
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     environment:
       DATABASE_URL: postgresql://planner:plannerpw@db:5432/plannerdb
       NODE_ENV: production
+      PORT: 3001
     ports:
       - "3001:3001"
-    # Observação: o serviço backend deve expor um servidor Fastify na porta 3001.
-    # Espera-se que exista em financial-planner-backend:
-    # - src/server.ts que cria o app Fastify e chama app.listen({ port: 3001 })
-    # - rota de health: GET /health (retorna { status: 'ok' })
-    # - plugin @fastify/swagger registrado em /documentation
-    # Ajuste o comando (command) se usar outro script de start (ex: pnpm/npm).
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3001/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart: unless-stopped
 
+  # Frontend (Next.js 14)
   frontend:
     build:
       context: ./financial-planner-frontend
+      dockerfile: Dockerfile
+    container_name: financial-planner-frontend
     depends_on:
-      - backend
+      backend:
+        condition: service_healthy
     ports:
       - "3000:3000"
     environment:
-      NEXT_PUBLIC_API_URL: http://backend:3001
+      NEXT_PUBLIC_API_URL: http://localhost:3001
+    restart: unless-stopped
 
 volumes:
   pg_data:
+    driver: local

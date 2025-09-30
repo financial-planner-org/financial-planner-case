@@ -2,10 +2,11 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat&logo=nextdotjs&logoColor=white)](https://nextjs.org/)
-[![Prisma](https://img.shields.io/badge/Prisma-3982CE?style=flat&logo=Prisma&logoColor=white)](https://www.prisma.io/)
-[![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=nodedotjs&logoColor=white)](https://nodejs.org/)
-[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
+[![Next.js](https://img.shields.io/badge/Next.js-14-000000?style=flat&logo=nextdotjs&logoColor=white)](https://nextjs.org/)
+[![Fastify](https://img.shields.io/badge/Fastify-4-202020?style=flat&logo=fastify&logoColor=white)](https://www.fastify.io/)
+[![Prisma](https://img.shields.io/badge/Prisma-5-3982CE?style=flat&logo=Prisma&logoColor=white)](https://www.prisma.io/)
+[![Node.js](https://img.shields.io/badge/Node.js-20-339933?style=flat&logo=nodedotjs&logoColor=white)](https://nodejs.org/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15-4169E1?style=flat&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
 [![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white)](https://www.docker.com/)
 
 <!-- SonarCloud Quality Badges -->
@@ -19,7 +20,31 @@
 
 Sistema de planejamento financeiro desenvolvido para um **Multi Family Office (MFO)** como parte de um processo seletivo. A ferramenta permite acompanhar o alinhamento dos clientes ao planejamento financeiro, projetar a evolução patrimonial até 2060 e registrar eventos financeiros como movimentações, seguros e metas.
 
-A interface replica fielmente o design dark-mode do Figma fornecido, sendo totalmente responsiva para desktop com suporte a zoom-in/zoom-out.
+A interface replica fielmente o design dark-mode do [Figma fornecido](https://www.figma.com/design/i2Ml8dgRQvDsLemtRJ5Jqw/TH---Gr%C3%A1ficos-RN?node-id=168-54&t=A7GUE3s7TLja5tl3-1), sendo totalmente responsiva para desktop com suporte a zoom-in/zoom-out.
+
+## 🎯 Requisitos da Case Atendidos
+
+### ✅ Funcionalidades Obrigatórias
+
+- **Projeção Patrimonial**: Endpoint que recebe ID da simulação e status (Vivo/Morto/Inválido), gerando projeção ano a ano até 2060 com taxa real composta configurável (padrão: 4% a.a.)
+- **Ponto Inicial Inteligente**: Considera sempre o registro mais recente de cada ativo anterior à data da simulação
+- **Gestão de Simulações**: Menu de três pontos com opções de editar, deletar e criar nova versão
+- **Situação Atual**: Cópia automática da simulação principal com data atual, não editável
+- **Controle de Versões**: Carrega apenas a versão mais recente, mantendo histórico completo
+- **Status de Vida**: Morto (sem timeline de entradas, despesas ÷ 2), Inválido (entradas encerradas)
+- **Alocações**: Ativos financeiros e imobiliários com histórico completo e regra de não sobrescrita
+- **Movimentações**: CRUD completo com frequências (única/mensal/anual) e timeline encadeada
+- **Seguros**: Registro de vida e invalidez com todos os campos obrigatórios
+- **Histórico**: Versões legadas com warning e possibilidade de reabertura
+
+### ✅ Requisitos Técnicos
+
+- **Backend**: Node.js 20 + TypeScript + Fastify 4 + Prisma ORM + PostgreSQL 15
+- **Frontend**: Next.js 14 + TypeScript + ShadCN/UI + TanStack Query + React Hook Form
+- **Validação**: Zod v4 schemas integrados
+- **Testes**: Jest + Supertest (cobertura > 80%) + Playwright
+- **Qualidade**: ESLint + SonarCloud
+- **Infraestrutura**: Docker Compose com PostgreSQL 15
 
 ## 🎯 Funcionalidades Implementadas
 
@@ -66,26 +91,27 @@ A interface replica fielmente o design dark-mode do Figma fornecido, sendo total
 
 ### Stack Tecnológica
 
-#### Backend
+#### Backend (Node.js 20 + TypeScript)
 
-- **Runtime**: Node.js 20 + TypeScript
 - **Framework**: Fastify 4 com documentação Swagger automática
-- **Banco de Dados**: PostgreSQL 15
-- **ORM**: Prisma com migrações automatizadas
-- **Validação**: Zod v4 schemas integrados
+- **Banco de Dados**: PostgreSQL 15 (produção) + SQLite (desenvolvimento)
+- **ORM**: Prisma 5 com migrações automatizadas
+- **Validação**: Zod v4 schemas integrados ao Fastify
 - **Testes**: Jest + Supertest (cobertura > 80%)
 - **Qualidade**: ESLint + Prettier + SonarCloud
 - **Arquitetura**: Camadas (routes → services → repositories)
+- **Documentação**: Swagger UI em `/documentation`
 
-#### Frontend
+#### Frontend (Next.js 14 + TypeScript)
 
 - **Framework**: Next.js 14 com App Router
 - **UI/UX**: ShadCN/UI com tema dark-mode (conforme Figma)
 - **Estado**: TanStack Query com cache inteligente
 - **Formulários**: React Hook Form + Zod v4
 - **HTTP**: Axios com interceptors configurados
-- **Estilização**: Tailwind CSS
-- **Responsividade**: Design adaptável com suporte a zoom
+- **Estilização**: Tailwind CSS com design tokens
+- **Responsividade**: Design adaptável com suporte a zoom-in/zoom-out
+- **Testes**: Playwright para testes E2E
 
 #### Infraestrutura
 
@@ -93,6 +119,7 @@ A interface replica fielmente o design dark-mode do Figma fornecido, sendo total
 - **Banco de Dados**: PostgreSQL 15
 - **CI/CD**: GitHub Actions
 - **Análise de Qualidade**: SonarCloud integrado
+- **Monitoramento**: Health checks e métricas de performance
 
 ### Modelo de Dados
 
