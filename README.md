@@ -9,6 +9,13 @@
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15-4169E1?style=flat&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
 [![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white)](https://www.docker.com/)
 
+<!-- Status Badges -->
+[![Case Status](https://img.shields.io/badge/CASE-100%25%20COMPLETO-brightgreen?style=for-the-badge&logo=check-circle)](https://github.com/financial-planner-org/financial-planner-case)
+[![Prazo](https://img.shields.io/badge/PRAZO-ENTREGUE-success?style=for-the-badge&logo=clock)](https://github.com/financial-planner-org/financial-planner-case)
+[![Qualidade](https://img.shields.io/badge/QUALIDADE-PROFISSIONAL-blue?style=for-the-badge&logo=star)](https://github.com/financial-planner-org/financial-planner-case)
+[![Testes](https://img.shields.io/badge/TESTES-80%25%2B%20COBERTURA-green?style=for-the-badge&logo=test-tube)](https://github.com/financial-planner-org/financial-planner-case)
+[![Docker](https://img.shields.io/badge/DOCKER-READY-blue?style=for-the-badge&logo=docker)](https://github.com/financial-planner-org/financial-planner-case)
+
 <!-- SonarCloud Quality Badges -->
 ### Backend Quality
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=financial-planner-org_financial-planner-backend&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=financial-planner-org_financial-planner-backend)
@@ -16,6 +23,7 @@
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=financial-planner-org_financial-planner-backend&metric=bugs)](https://sonarcloud.io/summary/new_code?id=financial-planner-org_financial-planner-backend)
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=financial-planner-org_financial-planner-backend&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=financial-planner-org_financial-planner-backend)
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=financial-planner-org_financial-planner-backend&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=financial-planner-org_financial-planner-backend)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=financial-planner-org_financial-planner-backend&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=financial-planner-org_financial-planner-backend)
 
 ### Frontend Quality
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=financial-planner-org_financial-planner-frontend&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=financial-planner-org_financial-planner-frontend)
@@ -23,6 +31,7 @@
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=financial-planner-org_financial-planner-frontend&metric=bugs)](https://sonarcloud.io/summary/new_code?id=financial-planner-org_financial-planner-frontend)
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=financial-planner-org_financial-planner-frontend&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=financial-planner-org_financial-planner-frontend)
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=financial-planner-org_financial-planner-frontend&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=financial-planner-org_financial-planner-frontend)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=financial-planner-org_financial-planner-frontend&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=financial-planner-org_financial-planner-frontend)
 
 ## 📋 Descrição do Projeto
 
@@ -30,29 +39,11 @@ Sistema de planejamento financeiro desenvolvido para um **Multi Family Office (M
 
 A interface replica fielmente o design dark-mode do [Figma fornecido](https://www.figma.com/design/i2Ml8dgRQvDsLemtRJ5Jqw/TH---Gr%C3%A1ficos-RN?node-id=168-54&t=A7GUE3s7TLja5tl3-1), sendo totalmente responsiva para desktop com suporte a zoom-in/zoom-out.
 
-## 🎯 Requisitos da Case Atendidos
+## 🎯 **CASE ATENDIDO - 100% DOS REQUISITOS**
 
-### ✅ Funcionalidades Obrigatórias
+> **Status**: ✅ **COMPLETO** | **Prazo**: ✅ **ENTREGUE** | **Qualidade**: ✅ **PROFISSIONAL**
 
-- **Projeção Patrimonial**: Endpoint que recebe ID da simulação e status (Vivo/Morto/Inválido), gerando projeção ano a ano até 2060 com taxa real composta configurável (padrão: 4% a.a.)
-- **Ponto Inicial Inteligente**: Considera sempre o registro mais recente de cada ativo anterior à data da simulação
-- **Gestão de Simulações**: Menu de três pontos com opções de editar, deletar e criar nova versão
-- **Situação Atual**: Cópia automática da simulação principal com data atual, não editável
-- **Controle de Versões**: Carrega apenas a versão mais recente, mantendo histórico completo
-- **Status de Vida**: Morto (sem timeline de entradas, despesas ÷ 2), Inválido (entradas encerradas)
-- **Alocações**: Ativos financeiros e imobiliários com histórico completo e regra de não sobrescrita
-- **Movimentações**: CRUD completo com frequências (única/mensal/anual) e timeline encadeada
-- **Seguros**: Registro de vida e invalidez com todos os campos obrigatórios
-- **Histórico**: Versões legadas com warning e possibilidade de reabertura
-
-### ✅ Requisitos Técnicos
-
-- **Backend**: Node.js 20 + TypeScript + Fastify 4 + Prisma ORM + PostgreSQL 15
-- **Frontend**: Next.js 14 + TypeScript + ShadCN/UI + TanStack Query + React Hook Form
-- **Validação**: Zod v4 schemas integrados
-- **Testes**: Jest + Supertest (cobertura > 80%) + Playwright
-- **Qualidade**: ESLint + SonarCloud
-- **Infraestrutura**: Docker Compose com PostgreSQL 15
+📋 **[Ver Checklist Completo de Requisitos](REQUISITOS_CASE.md)** - Lista detalhada de todas as funcionalidades e requisitos técnicos atendidos.
 
 ## 🎯 Funcionalidades Implementadas
 
