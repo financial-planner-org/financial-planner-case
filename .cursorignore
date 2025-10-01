@@ -1,8 +1,56 @@
+# Dependências
+node_modules/
+**/node_modules/
 
+# Build
+dist/
+build/
+.next/
+out/
 
+# Ambientes
+.env
+.env.*.local
 
+# Logs
+*.log
 
+# IDEs / Editores
+.vscode/
+.idea/
+*.sw?
 
+# Testes e relatórios
+coverage/
+.nyc_output/
+test-results/
+jest-html-reporters-*
 
+# Docker / Volumes
+docker-compose.override.yml
+**/pg_data/
+**/.docker/
 
-# Add directories or file patterns to ignore during indexing (e.g. foo/ or *.csv)
+# Banco de dados local
+*.sqlite
+*.db
+
+# Cache / temporários
+.cache/
+tmp/
+temp/
+*.tmp
+*.bak
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# Outros
+*.tgz
+*.zip
+*.tar.gz
+*.orig
+*.lock-wscript
+.pnpm-debug.log
+yarn-error.log

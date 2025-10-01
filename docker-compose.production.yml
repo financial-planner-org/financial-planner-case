@@ -1,0 +1,74 @@
+version: "3.8"
+
+services:
+  # Frontend
+  frontend:
+    build:
+      context: ./financial-planner-frontend
+      dockerfile: Dockerfile.production
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - NEXT_PUBLIC_API_URL=http://backend:3001
+    depends_on:
+      - backend
+    restart: unless-stopped
+    networks:
+      - financial-planner-network
+
+  # Backend
+  backend:
+    build:
+      context: ./financial-planner-backend
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=production
+      - DATABASE_URL=postgresql://financial_planner:password@postgres:5432/financial_planner
+      - PORT=3001
+    depends_on:
+      - postgres
+    restart: unless-stopped
+    networks:
+      - financial-planner-network
+
+  # PostgreSQL
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      - POSTGRES_DB=financial_planner
+      - POSTGRES_USER=financial_planner
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./financial-planner-backend/prisma/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+    networks:
+      - financial-planner-network
+
+  # Nginx (opcional para load balancing)
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./ssl:/etc/nginx/ssl
+    depends_on:
+      - frontend
+      - backend
+    restart: unless-stopped
+    networks:
+      - financial-planner-network
+
+volumes:
+  postgres_data:
+
+networks:
+  financial-planner-network:
+    driver: bridge

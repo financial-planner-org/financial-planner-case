@@ -28,6 +28,9 @@ yarn-error.log*
 # IDE
 .idea
 .vscode/
+.cursor/
+#!.cursor/context/
+#!.cursor/README.md
 *.suo
 *.ntvs*
 *.njsproj

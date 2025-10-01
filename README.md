@@ -10,6 +10,7 @@
 [![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white)](https://www.docker.com/)
 
 <!-- Status Badges -->
+
 [![Case Status](https://img.shields.io/badge/CASE-100%25%20COMPLETO-brightgreen?style=for-the-badge&logo=check-circle)](https://github.com/financial-planner-org/financial-planner-case)
 [![Prazo](https://img.shields.io/badge/PRAZO-ENTREGUE-success?style=for-the-badge&logo=clock)](https://github.com/financial-planner-org/financial-planner-case)
 [![Qualidade](https://img.shields.io/badge/QUALIDADE-PROFISSIONAL-blue?style=for-the-badge&logo=star)](https://github.com/financial-planner-org/financial-planner-case)
@@ -17,6 +18,7 @@
 [![Docker](https://img.shields.io/badge/DOCKER-READY-blue?style=for-the-badge&logo=docker)](https://github.com/financial-planner-org/financial-planner-case)
 
 <!-- SonarCloud Quality Badges -->
+
 ### Backend Quality
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=financial-planner-org_financial-planner-backend&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=financial-planner-org_financial-planner-backend)
@@ -195,7 +197,7 @@ services:
     depends_on:
       - backend
     ports:
-      - "3000:3000"
+      - '3000:3000'
 
 volumes:
   pg_data:
@@ -207,11 +209,11 @@ O projeto está organizado em **3 repositórios separados** na organização `fi
 
 ### 🏢 **Repositórios da Organização**
 
-| Repositório | Descrição | Tecnologias | Status |
-|-------------|-----------|-------------|---------|
-| [**financial-planner-case**](https://github.com/financial-planner-org/financial-planner-case) | Repositório principal com Docker Compose e documentação | Docker, CI/CD, SonarCloud | ✅ Ativo |
-| [**financial-planner-backend**](https://github.com/financial-planner-org/financial-planner-backend) | API REST com Node.js e Fastify | Node.js, Fastify, Prisma, PostgreSQL | ✅ Ativo |
-| [**financial-planner-frontend**](https://github.com/financial-planner-org/financial-planner-frontend) | Interface Next.js com ShadCN/UI | Next.js, TypeScript, Tailwind CSS | ✅ Ativo |
+| Repositório                                                                                           | Descrição                                               | Tecnologias                          | Status   |
+| ----------------------------------------------------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------ | -------- |
+| [**financial-planner-case**](https://github.com/financial-planner-org/financial-planner-case)         | Repositório principal com Docker Compose e documentação | Docker, CI/CD, SonarCloud            | ✅ Ativo |
+| [**financial-planner-backend**](https://github.com/financial-planner-org/financial-planner-backend)   | API REST com Node.js e Fastify                          | Node.js, Fastify, Prisma, PostgreSQL | ✅ Ativo |
+| [**financial-planner-frontend**](https://github.com/financial-planner-org/financial-planner-frontend) | Interface Next.js com ShadCN/UI                         | Next.js, TypeScript, Tailwind CSS    | ✅ Ativo |
 
 ### 📁 **Estrutura Detalhada**
 
@@ -353,8 +355,8 @@ Para ativar o SonarCloud:
    # Backend
    cd financial-planner-backend
    npm install sonar-scanner --save-dev
-   
-   # Frontend  
+
+   # Frontend
 cd financial-planner-frontend
    npm install sonar-scanner --save-dev
 ```
@@ -417,20 +419,3 @@ Para contribuir com o projeto:
    ```
 
 ### Convenções de Código
-
-- **Commits**: Use conventional commits (feat:, fix:, docs:, etc.)
-- **Branches**: `feature/nome-da-feature` ou `fix/nome-do-bug`
-- **Testes**: Mantenha cobertura > 80%
-- **Código**: Siga padrões ESLint + Prettier
-
-### Processo de Contribuição
-
-1. Fork o repositório
-2. Crie uma branch para sua feature
-3. Implemente com testes
-4. Execute análise SonarCloud
-5. Abra Pull Request com descrição clara
-
-## 📝 Licença
-
-Este projeto está licenciado sob a [Licença MIT](LICENSE).
