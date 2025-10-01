@@ -419,3 +419,99 @@ Para contribuir com o projeto:
    ```
 
 ### Convenções de Código
+
+- **Commits**: Seguir padrão Conventional Commits
+- **Branches**: `feature/`, `fix/`, `docs/`, `test/`
+- **Code Style**: ESLint + Prettier configurados
+- **Testes**: Obrigatórios para novas funcionalidades
+- **Documentação**: Atualizar README e comentários
+
+### Workflow de Desenvolvimento
+
+1. **Fork** do repositório
+2. **Criar branch** para feature/fix
+3. **Desenvolver** com testes
+4. **Commit** seguindo convenções
+5. **Push** e criar Pull Request
+6. **Code Review** e merge
+
+## 📈 Performance e Monitoramento
+
+### Métricas de Performance
+
+- **Backend**: Response time < 200ms para endpoints principais
+- **Frontend**: First Contentful Paint < 1.5s
+- **Database**: Queries otimizadas com índices apropriados
+- **Memory**: Uso eficiente de memória com garbage collection
+
+### Health Checks
+
+- **API Health**: `GET /health` - Status da aplicação
+- **Database Health**: Verificação de conectividade
+- **Dependencies**: Status de serviços externos
+
+## 🔒 Segurança
+
+### Medidas Implementadas
+
+- **Validação de Dados**: Zod schemas em todas as entradas
+- **Sanitização**: Limpeza de inputs maliciosos
+- **Rate Limiting**: Proteção contra ataques DDoS
+- **CORS**: Configuração adequada para produção
+- **Secrets**: Variáveis de ambiente para dados sensíveis
+
+### Boas Práticas
+
+- **Princípio do Menor Privilégio**: Acesso mínimo necessário
+- **Validação Dupla**: Frontend e Backend
+- **Logs de Segurança**: Auditoria de ações sensíveis
+- **Updates**: Dependências sempre atualizadas
+
+## 📚 Documentação Adicional
+
+- **[REQUISITOS_CASE.md](REQUISITOS_CASE.md)** - Checklist completo dos requisitos
+- **[README-PRODUCTION.md](README-PRODUCTION.md)** - Guia de deploy em produção
+- **[SONARCLOUD_SETUP.md](SONARCLOUD_SETUP.md)** - Configuração do SonarCloud
+- **[Backend README](financial-planner-backend/README.md)** - Documentação da API
+- **[Frontend README](financial-planner-frontend/README.md)** - Documentação da UI
+
+## 🎯 Próximos Passos
+
+### Melhorias Futuras
+
+- [ ] **Autenticação**: Sistema de login e permissões
+- [ ] **Relatórios**: Exportação em PDF/Excel
+- [ ] **Notificações**: Alertas por email/SMS
+- [ ] **Mobile**: App nativo ou PWA
+- [ ] **Analytics**: Dashboard de métricas avançadas
+
+### Roadmap Técnico
+
+- [ ] **Microserviços**: Separação por domínio
+- [ ] **Cache**: Redis para performance
+- [ ] **Queue**: Processamento assíncrono
+- [ ] **Monitoring**: APM com New Relic/DataDog
+- [ ] **Kubernetes**: Orquestração em produção
+
+## 📞 Suporte e Contato
+
+- **Issues**: [GitHub Issues](https://github.com/financial-planner-org/financial-planner-case/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/financial-planner-org/financial-planner-case/discussions)
+- **Email**: [Seu Email]
+- **LinkedIn**: [Seu LinkedIn]
+
+## 📄 Licença
+
+Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para detalhes.
+
+---
+
+<div align="center">
+
+**Desenvolvido com ❤️ para o processo seletivo**
+
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/financial-planner-org)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/seu-perfil)
+[![Portfolio](https://img.shields.io/badge/Portfolio-000000?style=for-the-badge&logo=About.me&logoColor=white)](https://seu-portfolio.com)
+
+</div>
